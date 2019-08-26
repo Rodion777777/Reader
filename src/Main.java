@@ -33,4 +33,4 @@ public class Main {
         }
     }
 }
-//D:/Desktop/doc1.txt
+//D:/Desktop/doc1.txt//D:/Desktop/doc1.txt//D:/Desktop/doc1.txt
