@@ -64,3 +64,4 @@ public class Main {
         System.out.println("—амое повтор€ющеес€ слово: " + "\"" + s + "\"" + " (встречаетс€ " + statistics.get(s) + " раз(а))");
     }
 }
+//
