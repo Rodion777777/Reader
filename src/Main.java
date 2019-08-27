@@ -16,7 +16,7 @@ public class Main {
         while (line != null)
         {
             String[] subStr;
-            subStr = line.split("[^a-zа-я]+");
+            subStr = line.split("[^A-Za-zа-яА-Я]+");
             for(int i = 0; i < subStr.length; i++) {
                 listOfLines.add(subStr[i]);
             }
