@@ -5,8 +5,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Р’РІРµРґРёС‚Рµ РІ РєРѕРЅСЃРѕР»Рё Р°РґСЂРµСЃ .txt С„Р°Р№Р»Р° РІ СЃР»РµРґСѓСЋС‰РµРј С„РѕСЂРјР°С‚Рµ D:/Desktop/doc1.txt " +
-                "РёР»Рё РІ С„РѕСЂРјР°С‚Рµ РёРјСЏ_С„Р°Р№Р»Р°.txt, РµСЃР»Рё С„Р°Р№Р» РЅР°С…РѕРґРёС‚СЃСЏ РІ РєРѕСЂРЅРµРІРѕРј РєР°С‚Р°Р»РѕРіРµ РїСЂРѕРµРєС‚Р°: ");
+        System.out.println("Введите в консоли адрес .txt файла в следующем формате D:/Desktop/doc1.txt " +
+                "или в формате имя_файла.txt, если файл находится в корневом каталоге проекта: ");
 
         BufferedReader bufReader = new BufferedReader(new FileReader(reader.readLine()));
         ArrayList<String> listOfLines = new ArrayList<>();
@@ -16,7 +16,7 @@ public class Main {
         while (line != null)
         {
             String[] subStr;
-            subStr = line.split("\\W");
+            subStr = line.split("[^a-z а-я]+");
             for(int i = 0; i < subStr.length; i++) {
                 listOfLines.add(subStr[i]);
             }
@@ -27,7 +27,7 @@ public class Main {
         Collections.sort(listOfLines, String.CASE_INSENSITIVE_ORDER);
 
 
-        System.out.println("РЎР»РѕРІР° РёР· С„Р°Р№Р»Р° РІ Р°Р»С„Р°РІРёС‚РЅРѕРј РїРѕСЂСЏРґРєРµ: ");
+        System.out.println("Слова из файла в алфавитном порядке: ");
         for (String s : listOfLines){
             System.out.println(s);
         }
@@ -46,9 +46,9 @@ public class Main {
         System.out.println();
         System.out.println();
         System.out.println();
-        System.out.println("РЎС‚Р°С‚РёСЃС‚РёРєР° РІСЃС‚СЂРµС‡Р°РµРјРѕСЃС‚Рё СЃР»РѕРІ РІ С„Р°Р№Р»Рµ: ");
+        System.out.println("Статистика встречаемости слов в файле: ");
         for(String word : statistics.keySet()) {
-            System.out.println("РЎР»РѕРІРѕ " + "\"" + word + "\"" +" РІСЃС‚СЂРµС‡Р°РµС‚СЃСЏ РІ С„Р°Р№Р»Рµ " + statistics.get(word) + " СЂР°Р·(Р°).");
+            System.out.println("Слово " + "\"" + word + "\"" +" встречается в файле " + statistics.get(word) + " раз(а).");
         }
 
         String s = null;
@@ -61,8 +61,6 @@ public class Main {
         }
         System.out.println();
         System.out.println();
-        System.out.println("РЎР°РјРѕРµ РїРѕРІС‚РѕСЂСЏСЋС‰РµРµСЃСЏ СЃР»РѕРІРѕ: " + "\"" + s + "\"" + " (РІСЃС‚СЂРµС‡Р°РµС‚СЃСЏ " + statistics.get(s) + " СЂР°Р·(Р°))");
+        System.out.println("Самое повторяющееся слово: " + "\"" + s + "\"" + " (встречается " + statistics.get(s) + " раз(а))");
     }
 }
-
-
