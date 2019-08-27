@@ -5,8 +5,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("¬ведите в консоли адрес .txt файла в следующем формате D:/Desktop/doc1.txt " +
-                "или в формате им€_файла.txt, если файл находитс€ в корневом каталоге проекта: ");
+        System.out.println("¬ведите в консоли адрес .txt файла в следующем формате D:/Desktop/doc1.txt  или в формате им€_файла.txt, если файл находитс€ в корневом каталоге проекта: ");
 
         BufferedReader bufReader = new BufferedReader(new FileReader(reader.readLine()));
         ArrayList<String> listOfLines = new ArrayList<>();
