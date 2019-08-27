@@ -59,9 +59,17 @@ public class Main {
                 s = w;
             }
         }
+
         System.out.println();
         System.out.println();
-        System.out.println("Самое повторяющееся слово: " + "\"" + s + "\"" + " (встречается " + statistics.get(s) + " раз(а))");
+        for (String w : statistics.keySet()){
+            if(p == statistics.get(w)){
+                s = w;
+                System.out.println("Самое повторяющееся слово: " + "\"" + s + "\"" + " (встречается " + statistics.get(s) + " раз(а))");
+            }
+        }
+
+
     }
 }
 //
