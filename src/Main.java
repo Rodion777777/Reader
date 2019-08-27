@@ -16,7 +16,7 @@ public class Main {
         while (line != null)
         {
             String[] subStr;
-            subStr = line.split("[^a-z à-ÿ]+");
+            subStr = line.split("[^a-zà-ÿ]+");
             for(int i = 0; i < subStr.length; i++) {
                 listOfLines.add(subStr[i]);
             }
