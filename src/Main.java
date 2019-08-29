@@ -9,39 +9,35 @@ public class Main {
                 "или в формате имя_файла.txt, если файл находится в корневом каталоге проекта: ");
 
         BufferedReader bufReader = new BufferedReader(new FileReader(reader.readLine()));
-        ArrayList<String> listOfLines = new ArrayList<>();
+
         String line = bufReader.readLine();
 
 
-        while (line != null)
-        {
-            String[] subStr;
-            subStr = line.split("[^A-Za-zа-яА-Я]+");
-            for(int i = 0; i < subStr.length; i++) {
-                listOfLines.add(subStr[i]);
+        SortedMap<String, Integer> statistics = new TreeMap<>();
+
+        while (line != null) {
+            for (String word : line.split("[^A-Za-zа-яА-Я]+")) {
+                if(!word.isEmpty()) {
+                    Integer count = statistics.get(word);
+                    if(count == null) {
+                        count = 0;
+                    }
+                    statistics.put(word, ++count);
+                }
             }
             line = bufReader.readLine();
         }
         bufReader.close();
 
-        Collections.sort(listOfLines, String.CASE_INSENSITIVE_ORDER);
+
+
 
 
         System.out.println("Слова из файла в алфавитном порядке: ");
-        for (String s : listOfLines){
+        for (String s : statistics.keySet()){
             System.out.println(s);
         }
 
-        Map<String, Integer> statistics = new HashMap<>();
-        for (String word : listOfLines) {
-            if(!word.isEmpty()) {
-                Integer count = statistics.get(word);
-                if(count == null) {
-                    count = 0;
-                }
-                statistics.put(word, ++count);
-            }
-        }
 
         System.out.println();
         System.out.println();
@@ -72,4 +68,3 @@ public class Main {
 
     }
 }
-//
